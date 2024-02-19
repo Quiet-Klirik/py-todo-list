@@ -25,8 +25,8 @@
           <a href="#" class="btn btn-success fs-5">Complete</a>
         {% endif %}
       </div>
-      <small>Created: {{ task.created_at }}{% if task.deadline %} <span class="text-danger">Deadline: {{ task.deadline }}</span>{% endif %}</small>
-      <p class="text-secondary mt-2 mb-1">
+      <small class="fw-medium">Created: {{ task.created_at }}{% if task.deadline %} <span class="text-danger">Deadline: {{ task.deadline }}</span>{% endif %}</small>
+      <p class="text-secondary fw-medium mt-2 mb-1">
         Tags: {% for tag in task.tags.all %}{{ tag.name }} {% empty %}no tags{% endfor %}
         <a href="#" class="link-underline link-underline-opacity-0">Update</a>
         <a href="#" class="link-underline link-underline-opacity-0">Delete</a>

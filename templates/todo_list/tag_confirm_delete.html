@@ -1,0 +1,4 @@
+{% extends "base_confirm.html" %}
+{% block title %}Delete Tag{% endblock title %}
+{% block object_name %}Tag "{{ object.name }}"{% endblock object_name %}
+{% block cancel_url %}{% url 'todo:tag_list' %}{% endblock cancel_url %}

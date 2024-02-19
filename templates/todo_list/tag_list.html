@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="d-flex w-100 justify-content-between mb-3">
+    <h1>Tags</h1>
+    <div>
+      <a href="{% url 'todo:tag_create' %}" class="btn btn-primary fs-5">Add tag</a>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    {% for tag in tag_list %}
+      <li class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ tag.name }}</h5>
+          <div>
+            <a href="{% url 'todo:tag_update' pk=tag.id %}" class="btn btn-warning fs-5">Update</a>
+            <a href="{% url 'todo:tag_delete' pk=tag.id %}" class="btn btn-danger fs-5">Delete</a>
+          </div>
+        </div>
+      </li>
+    {% empty %}
+      <h1 class="text-center">There are no tags</h1>
+    {% endfor %}
+  </ul>
+{% endblock content %}

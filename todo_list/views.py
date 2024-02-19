@@ -14,3 +14,14 @@ class TaskCreateView(generic.CreateView):
     model = Task
     fields = ["content", "deadline", "tags"]
     success_url = reverse_lazy("todo:list")
+
+
+class TaskUpdateView(generic.UpdateView):
+    model = Task
+    fields = ["content", "deadline", "tags"]
+    success_url = reverse_lazy("todo:list")
+
+
+class TaskDeleteView(generic.DeleteView):
+    model = Task
+    success_url = reverse_lazy("todo:list")

@@ -1,3 +1,4 @@
 {% extends "base_confirm.html" %}
+{% block title %}Delete Task{% endblock title %}
 {% block object_name %}Task "{{ object.content }}"{% endblock object_name %}
-{% block cancel_url %}{% url 'todo:list' %}{% endblock cancel_url %}
+{% block cancel_url %}{% url 'todo:task_list' %}{% endblock cancel_url %}

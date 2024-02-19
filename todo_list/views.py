@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from todo_list.models import Task
+from todo_list.models import Task, Tag
 
 
 class TaskListView(generic.ListView):
@@ -13,18 +13,18 @@ class TaskListView(generic.ListView):
 class TaskCreateView(generic.CreateView):
     model = Task
     fields = ["content", "deadline", "tags"]
-    success_url = reverse_lazy("todo:list")
+    success_url = reverse_lazy("todo:task_list")
 
 
 class TaskUpdateView(generic.UpdateView):
     model = Task
     fields = ["content", "deadline", "tags"]
-    success_url = reverse_lazy("todo:list")
+    success_url = reverse_lazy("todo:task_list")
 
 
 class TaskDeleteView(generic.DeleteView):
     model = Task
-    success_url = reverse_lazy("todo:list")
+    success_url = reverse_lazy("todo:task_list")
 
 
 class TaskSwitchView(generic.View):
@@ -44,4 +44,25 @@ class TaskSwitchView(generic.View):
         else:
             object.is_done = True
         object.save()
-        return redirect("todo:list")
+        return redirect("todo:task_list")
+
+
+class TagListView(generic.ListView):
+    model = Tag
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    fields = ["name"]
+    success_url = reverse_lazy("todo:tag_list")
+
+
+class TagUpdateView(generic.UpdateView):
+    model = Tag
+    fields = ["name"]
+    success_url = reverse_lazy("todo:tag_list")
+
+
+class TagDeleteView(generic.DeleteView):
+    model = Tag
+    success_url = reverse_lazy("todo:tag_list")

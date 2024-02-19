@@ -1,9 +1,10 @@
 from django.urls import path
 
-from todo_list.views import TaskListView
+from todo_list.views import TaskListView, TaskCreateView
 
 urlpatterns = [
-    path("", TaskListView.as_view(), name="list")
+    path("", TaskListView.as_view(), name="list"),
+    path("task-create", TaskCreateView.as_view(), name="task_create"),
 ]
 
 app_name = "todo_list"

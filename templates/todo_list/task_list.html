@@ -20,9 +20,9 @@
           {% endif %}
         </h5>
         {% if task.is_done %}
-          <a href="#" class="btn btn-secondary fs-5">Undo</a>
+          <a href="{% url 'todo:task-status-switch' pk=task.id %}" class="btn btn-secondary fs-5">Undo</a>
         {% else %}
-          <a href="#" class="btn btn-success fs-5">Complete</a>
+          <a href="{% url 'todo:task-status-switch' pk=task.id %}" class="btn btn-success fs-5">Complete</a>
         {% endif %}
       </div>
       <small class="fw-medium">Created: {{ task.created_at }}{% if task.deadline %} <span class="text-danger">Deadline: {{ task.deadline }}</span>{% endif %}</small>
